@@ -21,9 +21,18 @@ public class CowsAndBulls{
     numberPicker = new NumberPicker(seed, 1, 9);
     this.guesses = MAX_GUESSES;
     this.mysteryValue = numberPicker.nextInt();
-    for (int i = 0; i < NUM_DIGITS - 1; i++) {
-       mysteryValue = mysteryValue*10 + numberPicker.nextInt();
+    if (!(mysteryValue >= MAX_VALUE && mysteryValue <= MIN_VALUE)) {
+      for (int i = 0; i < NUM_DIGITS - 1; i++) {
+         mysteryValue = mysteryValue*10 + numberPicker.nextInt();
+      }
     }
+    /*
+    do {
+      for (int i = 0; i < NUM_DIGITS - 1; i++) {
+         mysteryValue = mysteryValue*10 + numberPicker.nextInt();
+      }
+      break;
+    } while (!(mysteryValue >= MAX_VALUE && mysteryValue <= MIN_VALUE)); */
   }
 
   public int guessesRemaining(){
