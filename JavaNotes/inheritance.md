@@ -163,3 +163,72 @@ public class HourlyEmployee extends Employee{
   }
 }
 ```
+
+#### Changing the Access Permission of an Overidden Method
+* This is allowed (private ==> public)
+  * PARENT CLASS:    `private void doStuff()`
+  * CHILD CLASS:     'public void doStuff()'
+* This is not allowed (public ==> private)
+  * PARENT CLASS:    `public void doStuff()`
+  * CHILD CLASS:     'private void doStuff()'
+
+#### Overiding Vs Overloading
+* Overiding
+  * The new method in child class has exact same number and type of parameters as in parent class
+  * PARENT: `public Int getNumber()`
+  * CHILD:  `public Int getNumber()`
+* Overloading
+  * The new method in child class has different signature from method in parent class.
+  * PARENT: `public Int getNumber()`
+  * CHILD:  `public Int getNumber(int index)`
+  * **NOTE:** When a child class overloads a method, it still inherits the original method from the parent class as well.
+
+#### The Final Modifier
+* If it's placed before any method definition then that method my not be redefined(Overidden) in a child class. However they can still be overloaded
+* If it's placed in front of a class definition then that class cannot be used as a parent class to derive other classes.
+
+#### The Super Constructor
+* A child class uses the `super` keyword to invoke a Constructor of its parent class.
+* Example: `super(a, b)` is a call to the parent class constructor
+```java
+public childClass(int a, int b, long number){
+  super(a, b); // invoke the parent class Constructor
+  this.number = number; // initialize instance variable
+}
+```
+* A call to super should be the first action taken in the child class constructor definition
+* A child instance variable `CANNOT` be used as an argument to super()
+* If a child class constructor does not invoke the `super()` constructor then the parent no-argument constructor will be automatically invoked
+  * NB: This can result in an error if the parent class does not have the `no-argument` constructor definition
+
+#### The `this` Constructor
+* From within a constructor in a class you can use the `this()` keyword to call another constructor in the same class.
+* Doing this is called `Explicit Constructor Invocation`
+* Example
+```java
+public class Rectangle {
+    private int x, y;
+    private int width, height;
+
+    public Rectangle() {
+        this(0, 0, 1, 1);
+    }
+    public Rectangle(int width, int height) {
+        this(0, 0, width, height);
+    }
+    public Rectangle(int x, int y, int width, int height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+}
+```
+
+#### Some Tips when dealing with Constructors
+* An object of a child class has the type of the `child` and also the type of the `parent` class
+* An object of a child class hsa the type of any `ancestor` class above it in the Hierarchy.
+  * So the object of child class can be assigned to a variable of any ancestor type
+* An object of a child class can be plugged in as a parameter in place of any of its ancestor types
+* An object of a child class can be used anyplace that an object of any o its ancestor types can be used.
+  *  **NB:** This relationship does not go the other way around.
