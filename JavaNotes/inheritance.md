@@ -147,7 +147,7 @@ public class Child extends Parent{
 * However a method in a subclass may return an object whose type is a subclass of the type returned by the method with the same signature in the superclass.
   * This feature removes the need for excessive type checking and casting.
 * Example
-  * In this example; in the child class the method `getSomeone()` is Overidden and it's return type is changed.. Note that the return type is changed from `Employee` to `HourlyEmployee`... this is `LEGAL` => the Overidden method is an object whose type is a subclass of the original method in the superclass.
+  * In this example; in the child class the method `getSomeone()` is Overidden and it's return type is changed.. Note that the return type is changed from `Employee` to `HourlyEmployee`... this is `LEGAL` => the Overidden method is an object whose type(HourlyEmployee) is a subclass of the type(Employee) returned by the original method in the superclass.
 ```java
 /*  PARENT CLASS  */
 public class Employee{
