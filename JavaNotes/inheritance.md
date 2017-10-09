@@ -118,3 +118,48 @@ public class HourlyEmployee extends Employee{
 * Class HourlyEmployee (child class) has access to the instance variables stated above even though they are not specified in its class definition.
 * Class HourlyEmployee has additional Instance variables: wageRate and Hours that are specified in its class definition.
 * Class HourlyEmployee also inherits Class Employee's Methods and an object of HourlyEmployee can invoke a call to the methods in the parent class.
+
+## Derived classes
+
+#### Overiding a Method Definition
+* Although a child class inherits methods from parent it can change or overide an inherited method if necessary
+  * In order to overide a method a new definition of the method is placed in child class just like any other method
+* example
+```java
+public class Parent{
+  /* Method to be Overidden */
+  public String toSring(){
+    return "Hello World";
+  }
+}
+
+public class Child extends Parent{
+  /* Overiding the toString() Method */
+  public String toString(){
+    return "Hello Word.. I am the child";
+  }
+}
+
+```
+
+#### Overiding the return Type of an Overidden Method
+* Typically the type returned may not be changed when Overiding a method.
+* However a method in a subclass may return an object whose type is a subclass of the type returned by the method with the same signature in the superclass.
+  * This feature removes the need for excessive type checking and casting.
+* Example
+  * In this example; in the child class the method `getSomeone()` is Overidden and it's return type is changed.. Note that the return type is changed from `Employee` to `HourlyEmployee`... this is `LEGAL` => the Overidden method is an object whose type is a subclass of the original method in the superclass.
+```java
+/*  PARENT CLASS  */
+public class Employee{
+  public Employee getSomeone(long id){
+    .....
+  }
+}
+
+/* CHILD CLASS  */
+public class HourlyEmployee extends Employee{
+  public HourlyEmployee getSomeone(long id){
+    ....
+  }
+}
+```

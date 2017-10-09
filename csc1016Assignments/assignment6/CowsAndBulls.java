@@ -40,10 +40,10 @@ public class CowsAndBulls{
   }
 
   public Result guess(int myGuess){
-    int bulls = NumberUtils.countMatches(myGuess, mysteryValue);
-    int cows = NumberUtils.countIntersect(myGuess, mysteryValue);
-    Result result = new Result(cows, bulls);
     guesses--;
+    int bulls = NumberUtils.countMatches(myGuess, mysteryValue);
+    int cows = NumberUtils.countIntersect(myGuess, mysteryValue) - bulls;
+    Result result = new Result(cows, bulls);
     lastGuess = myGuess;
     return result;
   }
