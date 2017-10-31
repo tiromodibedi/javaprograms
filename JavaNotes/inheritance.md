@@ -230,5 +230,5 @@ public class Rectangle {
 * An object of a child class hsa the type of any `ancestor` class above it in the Hierarchy.
   * So the object of child class can be assigned to a variable of any ancestor type
 * An object of a child class can be plugged in as a parameter in place of any of its ancestor types
-* An object of a child class can be used anyplace that an object of any o its ancestor types can be used.
+* An object of a child class can be used anyplace that an object of any of its ancestor types can be used.
   *  **NB:** This relationship does not go the other way around.
