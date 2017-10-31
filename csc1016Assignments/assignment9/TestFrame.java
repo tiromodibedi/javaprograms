@@ -1,6 +1,3 @@
-/*	Place Code Here	*/
-/* This is how you implemented the action Listener	*/
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,7 +6,6 @@ import java.io.IOException;
 public class TestFrame
 {
    private JFrame jframe;
-   //private JButton jbutton=new JButton("Right Here");
    private JTextField textField;
    private JLabel label;
    private JLabel label2;
@@ -17,9 +13,10 @@ public class TestFrame
    private JPanel panel2;
    private JTextArea textArea;
    private JScrollPane scroll;
+   private JList jList;
+   DefaultListModel dataModel;
 
-   public TestFrame()
-   {
+   public TestFrame(){
       jframe = new JFrame("Word Puzzel Solver");
       jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       jframe.setSize(500,500);
@@ -33,6 +30,7 @@ public class TestFrame
       textField = new JTextField();
       textField.setPreferredSize(new Dimension(200,50));
 
+
       panel = new JPanel();
       panel.setSize(new Dimension(200,300));
       panel.setLayout(new FlowLayout());
@@ -43,8 +41,12 @@ public class TestFrame
       jframe.setVisible(true);
 
       //Text field 2
+      JList jList = new JList();
       textArea = new JTextArea(10,20);
+      textArea.add(jList);
       scroll = new JScrollPane(textArea);
+      scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+     // scroll.setViewportView(jList);
       panel2 = new JPanel();
       panel2.setSize(new Dimension(200,300));
       panel2.setLayout(new FlowLayout());
@@ -54,20 +56,35 @@ public class TestFrame
       jframe.setVisible(true);
       jframe.setVisible(true);
 
-      /*  Handle errors  */
-      Things textHandler = new Things(); // create a new Listener
-      textField.addActionListener(textHandler); // attatch the Listener to the textField
+      dataModel = new DefaultListModel();
+
+  		Things x = new Things();
+      textField.addActionListener(x);
 
    }
    private class Things implements ActionListener
    {
-
       @Override
       public void actionPerformed(ActionEvent event){
-        // here use the getText() function
-         String word = textField.getText();
 
-         System.out.println(word);
+        try{
+            String word = textField.getText();
+            Pattern pat = new Pattern((word));
+            WordList list = WordList.readFromFile("dictionary.txt");
+            WordList matchWords = list.match(pat);
+            //DefaultListModel dataModel = new DefaultListModel();
+            for (Word x: matchWords){
+               System.out.println(x);
+               dataModel.addElement(x);
+            }
+            jList.setModel(dataModel);
+         }catch(IOException e){
+           e.printStackTrace();
+         }
+
+
+        // Pattern pat = new Pattern(word);
+         //System.out.println(word);
       }
    }
    public static void main (String [] args)

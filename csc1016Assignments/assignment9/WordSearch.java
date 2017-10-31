@@ -126,17 +126,18 @@ public class WordSearch extends JFrame{
     } */
 
     // Handle Events
-    PatternMatcher textFieldListener = new PatternMatcher(jTextField, wordList, list);
-    jTextField.addActionListener(textFieldListener);
-/*
+    //PatternMatcher textFieldListener = new PatternMatcher(jTextField, wordList, list);
+    //jTextField.addActionListener(textFieldListener);
+
     jTextField.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent evt) {
             jTextFieldActionPerformed(evt);
         }
-    });*/
+    });
+
     pack();
   }
-/*
+
   private void jTextFieldActionPerformed(ActionEvent evt) {
       //System.out.println(jTextField.getText());
       //jTextField.setText("");
@@ -160,7 +161,7 @@ public class WordSearch extends JFrame{
       } catch (Exception e) {
         e.printStackTrace();
       }
-  }*/
+  }
 
 
   public static void main(String[] args) {
