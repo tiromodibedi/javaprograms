@@ -4,7 +4,7 @@
 *  Student Number: MDBTIR001                             *
 *  Date: 30-10-2017                                      *
 *********************************************************/
-import java.awt.*;
+/*import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -23,3 +23,4 @@ public class HangMan{
 
 
 }
+*/
