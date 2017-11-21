@@ -12,13 +12,15 @@ s#i0
 s#k0
 s#j0
 s#l0
-!73;g
-%\011Pattern.java
-%\011WordList.java
+!70;g
 %\011Word.java
-%\011WordSearch.java
-!73;f
-%\011Pattern.java
+%\011HangMan.java
 %\011WordList.java
+%\011Pattern.java
+!70;f
 %\011Word.java
-%\011WordSearch.java
+%\011HangMan.java
+%\011WordList.java
+%\011Pattern.java
+!30;m
+RunSelect	APPLICATION:Pattern
